@@ -55,6 +55,24 @@ void clear_timeline()
             timeline[i][j] = ' ';
 }
 
+double calculate_response_ratio(int wait_time, int burst_time)
+{
+    return (wait_time + burst_time) * 1.0 / burst_time;
+}
+
+void fillInWaitTime()
+{
+    for (int i = 0; i < no_of_process; i++)
+    {
+        int arrivalTime = getArrivalTime(processes[i]);
+        for (int k = arrivalTime; k < finishTime[i]; k++)
+        {
+            if (timeline[k][i] != '*')
+                timeline[k][i] = '.';
+        }
+    }
+}
+
 void firstComeFirstServe()
 {
 
@@ -439,24 +457,6 @@ void execute_algo(char algo_id, int quantum, string operation)
         break;
     default:
         break;
-    }
-}
-
-double calculate_response_ratio(int wait_time, int burst_time)
-{
-    return (wait_time + burst_time) * 1.0 / burst_time;
-}
-
-void fillInWaitTime()
-{
-    for (int i = 0; i < no_of_process; i++)
-    {
-        int arrivalTime = getArrivalTime(processes[i]);
-        for (int k = arrivalTime; k < finishTime[i]; k++)
-        {
-            if (timeline[k][i] != '*')
-                timeline[k][i] = '.';
-        }
     }
 }
 
