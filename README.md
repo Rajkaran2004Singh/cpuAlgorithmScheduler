@@ -33,12 +33,21 @@ Note: For Aging algorithm (algorithm 8), each process is described using a comma
 Processes are assumed to be sorted based on the arrival time. If two processes have the same arrival time, then the one with the lower priority is assumed to arrive first.
 
 Sample Input for FCFS :
+
 trace
+
 1
+
 20
+
 5
+
 A,0,3
+
 B,2,6
+
 C,4,4
+
 D,6,5
+
 E,8,2
